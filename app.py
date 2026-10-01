@@ -9,7 +9,9 @@ st.set_page_config(page_title="Video Engagement Analyzer", page_icon="📹", lay
 
 @st.cache_resource
 def load_model():
-    return joblib.load('best_video_engagement_model.pkl')
+    # Construct path relative to app.py
+    model_path = os.path.join(os.path.dirname(__file__), 'best_video_engagement_model.pkl')
+    return joblib.load(model_path)
 
 @st.cache_data
 def load_data():
